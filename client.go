@@ -7,13 +7,14 @@ import (
 	"google.golang.org/grpc"
 	"log"
 	"net/http"
+	"os"
 )
 
 var downloadService service.NasaEpicServiceClient
 
 func main() {
 	grpcConn, err := grpc.Dial(
-		"127.0.0.1:7777",
+		os.Getenv("NASA_API_KEY") + ":7777",
 		grpc.WithInsecure(),
 		)
 
