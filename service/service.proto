@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message RequestString{
+    string date = 1;
+}
+
+message ResponseString{
+    string message = 1;
+    bool error = 2;
+}
+
+service NasaEpicService{
+    rpc DownloadNatural(RequestString) returns (ResponseString) {}
+}

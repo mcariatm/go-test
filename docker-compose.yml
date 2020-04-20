@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  web-api:
+    image: golang:alpine
+    restart: always
+    links:
+      - nasa-epic-client
+    working_dir: /app
+    command: go run client.go
+    volumes:
+      - ./:/app
+    ports:
+      - 8080:8080
+
+  nasa-epic-client:
+    image: golang:alpine
+    restart: always
+    working_dir: /app
+    command: go run server.go
+    volumes:
+      - ./:/app
