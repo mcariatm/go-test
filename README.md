@@ -1,5 +1,4 @@
 # go-test
-Go test for www.online.io
 
 ##Installation
 1. clone project
